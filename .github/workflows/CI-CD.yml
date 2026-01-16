@@ -1,0 +1,43 @@
+name: CI CD pipeline
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting the Code
+        uses: actions/checkout@v4
+      - name: Install node 20
+        uses: actions/setup-node@v4
+      - name: Installing Dependencies
+        uses: npm ci
+      - name: Testing application
+        uses: npm run test
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting the code for build
+        uses: actions/checkout@v4
+      - name: Install nade 20
+        uses: actions/setup-node@v4
+      - name: Installing Dependencies
+        uses: npm ci
+      - name: Building application
+        uses: npm run build
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with: 
+          name: github-pages
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy application
+        run: echo "deploying this application"
