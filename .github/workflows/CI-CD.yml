@@ -14,9 +14,9 @@ jobs:
       - name: Install node 20
         uses: actions/setup-node@v4
       - name: Installing Dependencies
-        uses: npm ci
+        run: npm ci
       - name: Testing application
-        uses: npm run test
+        run: npm run test
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -26,9 +26,9 @@ jobs:
       - name: Install nade 20
         uses: actions/setup-node@v4
       - name: Installing Dependencies
-        uses: npm ci
+        run: npm ci
       - name: Building application
-        uses: npm run build
+        run: npm run build
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with: 
