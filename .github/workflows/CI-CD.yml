@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Getting the Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install node 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
       - name: Installing Dependencies
         run: npm ci
       - name: Testing application
@@ -25,15 +25,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Getting the code for build
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install nade 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
       - name: Installing Dependencies
         run: npm ci
       - name: Building application
         run: npm run build
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with: 
           name: github-pages
           path: dist
