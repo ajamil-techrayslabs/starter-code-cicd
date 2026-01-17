@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Getting the Code
-        uses: actions/checkout@v4
+        run: npm clone https://github.com/ajamil-techrayslabs/starter-code-cicd.git
       - name: Install node 20
         uses: actions/setup-node@v4
       - name: Installing Dependencies
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Getting the code for build
-        uses: actions/checkout@v4
+        run: git clone https://github.com/ajamil-techrayslabs/starter-code-cicd.git
       - name: Install nade 20
         uses: actions/setup-node@v4
       - name: Installing Dependencies
