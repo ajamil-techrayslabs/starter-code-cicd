@@ -29,7 +29,7 @@ jobs:
       - name: Install nade 20
         uses: actions/setup-node@v4
       - name: Installing Dependencies
-        run: npm Install
+        run: npm install
       - name: Building application
         run: npm run build
       - name: Upload Artifact
